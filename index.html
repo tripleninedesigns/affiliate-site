@@ -128,7 +128,10 @@
 
         /* Hero Section */
         .hero {
-            background-color: var(--color-beige);
+            background: linear-gradient(135deg, rgba(245,240,230,0.9) 0%, rgba(245,240,230,0.7) 100%), 
+                        url('https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
             padding: 100px 0;
             position: relative;
             overflow: hidden;
@@ -138,6 +141,10 @@
             max-width: 600px;
             position: relative;
             z-index: 2;
+            background: rgba(255, 255, 255, 0.85);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            backdrop-filter: blur(5px);
         }
 
         .hero h1 {
@@ -150,25 +157,6 @@
             font-size: 1.2rem;
             margin-bottom: 30px;
             color: #555;
-        }
-
-        .hero-image {
-            position: absolute;
-            right: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 45%;
-            height: 80%;
-            background: linear-gradient(135deg, var(--color-tan) 0%, #c9a884 100%);
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: rgba(255,255,255,0.8);
-            font-size: 1.2rem;
-            text-align: center;
-            padding: 20px;
         }
 
         /* Featured Collections */
@@ -204,12 +192,32 @@
 
         .card-image {
             height: 220px;
-            background-color: var(--color-tan);
             display: flex;
             justify-content: center;
             align-items: center;
-            color: rgba(255,255,255,0.9);
-            font-size: 1.1rem;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 600;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .card-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .card-image span {
+            position: relative;
+            z-index: 2;
         }
 
         .card-content {
@@ -324,6 +332,7 @@
             color: #aaa;
             text-decoration: none;
             transition: var(--transition);
+            font-size: 0.9rem;
         }
 
         .footer-links a:hover {
@@ -347,16 +356,6 @@
             .hero-content {
                 max-width: 100%;
                 text-align: center;
-            }
-            
-            .hero-image {
-                position: relative;
-                width: 100%;
-                height: 300px;
-                transform: none;
-                margin-top: 40px;
-                margin-left: auto;
-                margin-right: auto;
             }
             
             .hero h1 {
@@ -432,9 +431,6 @@
                 <p>Discover beautifully designed products that bring comfort, style, and functionality to your living spaces.</p>
                 <a href="#" class="btn">Browse Favorites</a>
             </div>
-            <div class="hero-image">
-                Lifestyle Product Showcase
-            </div>
         </div>
     </section>
 
@@ -444,7 +440,9 @@
             <h2 class="section-title">Featured Collections</h2>
             <div class="collections">
                 <div class="collection-card">
-                    <div class="card-image">Amazon Home Finds</div>
+                    <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80')">
+                        <span>Amazon Home Finds</span>
+                    </div>
                     <div class="card-content">
                         <h3>Amazon Home Finds</h3>
                         <p>Discover affordable yet stylish home essentials that combine quality with aesthetic appeal. These carefully selected items will transform your space without breaking the bank.</p>
@@ -453,7 +451,9 @@
                 </div>
                 
                 <div class="collection-card">
-                    <div class="card-image">Style Picks</div>
+                    <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80')">
+                        <span>Style Picks</span>
+                    </div>
                     <div class="card-content">
                         <h3>Style Picks</h3>
                         <p>Elevate your personal style with our curated selection of fashion and accessories. Timeless pieces that work for every season and occasion.</p>
@@ -462,7 +462,9 @@
                 </div>
                 
                 <div class="collection-card">
-                    <div class="card-image">Tech + Tools</div>
+                    <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1468436139062-f60a71c5c892?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80')">
+                        <span>Tech + Tools</span>
+                    </div>
                     <div class="card-content">
                         <h3>Tech + Tools</h3>
                         <p>Smart gadgets and tools that simplify your life while adding a touch of modern elegance. Where functionality meets beautiful design.</p>
@@ -477,7 +479,7 @@
     <section class="about">
         <div class="container">
             <div class="about-content">
-                <div class="about-image">Lindsey Nelson</div>
+                <div class="about-image"></div>
                 <h2>About Lindsey</h2>
                 <p>Hi! I'm Lindsey—lover of aesthetics, Amazon finds, and smart design. Triple Nine Designs is my way of sharing curated picks that blend function with style.</p>
                 <p>After years of helping friends discover beautiful products for their homes, I decided to create a space where everyone could access my favorite finds. My mission is to help you create spaces you love without the overwhelm.</p>
@@ -522,7 +524,7 @@
             </div>
             
             <div class="copyright">
-                <p>&copy; 2023 Triple Nine Designs. All rights reserved. Created by Lindsey Nelson.</p>
+                <p>&copy; 2025 Triple Nine Designs. All rights reserved. Created by VG Compliance Partners LLC.</p>
             </div>
         </div>
     </footer>
